@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const urlParams = new URLSearchParams(window.location.search);
 
+  document.getElementById("unitnumber").value = urlParams.get("UnitNumber") || "";
   document.getElementById("projectName").value = urlParams.get("projectName") || "";
   document.getElementById("unitId").value = urlParams.get("UnitID") || "";
   document.getElementById("floor").value = urlParams.get("Floor") || "";
@@ -23,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
       name: document.getElementById("Name").value,
       email: document.getElementById("email").value,
       phone: document.getElementById("phoneNumber").value,
+      phone: document.getElementById("unitnumber").value,
     };
     console.log("Form Data:", formData);
     toast.show();
