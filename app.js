@@ -1,17 +1,22 @@
 window.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
 
+  document.getElementById("projectName").value = urlParams.get("projectName") || "";
   document.getElementById("unitId").value = urlParams.get("UnitID") || "";
   document.getElementById("floor").value = urlParams.get("Floor") || "";
   document.getElementById("price").value = urlParams.get("Price") || "";
-
   document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = {
+      projectName: document.getElementById("projectName").value,
       unitId: document.getElementById("unitId").value,
       floor: document.getElementById("floor").value,
       price: document.getElementById("price").value,
+      name: document.getElementById("Name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phoneNumber").value,
     };
+    console.log("Form Data:", formData);
     fetch("https://your-backend.com/submit", {
       method: "POST",
       headers: {
