@@ -1,4 +1,12 @@
 window.addEventListener("DOMContentLoaded", () => {
+
+  const toastElement = document.getElementById('thankYouToast');
+  const toast = new bootstrap.Toast(toastElement, {
+    delay: 15000
+  });
+
+
+
   const urlParams = new URLSearchParams(window.location.search);
 
   document.getElementById("projectName").value = urlParams.get("projectName") || "";
@@ -17,6 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
       phone: document.getElementById("phoneNumber").value,
     };
     console.log("Form Data:", formData);
+    toast.show();
     fetch("https://your-backend.com/submit", {
       method: "POST",
       headers: {
